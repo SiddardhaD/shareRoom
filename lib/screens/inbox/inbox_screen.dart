@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/drawer.dart';
 
-class FavoritesMainScreen extends StatelessWidget {
-  const FavoritesMainScreen({super.key});
+class InboxMainScreen extends StatelessWidget {
+  const InboxMainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,23 +13,23 @@ class FavoritesMainScreen extends StatelessWidget {
         title: const Text("Welcome, Buddy"),
         backgroundColor: Colors.lightBlueAccent,
       ),
-      body: const FavoritesScreen(),
+      body: const InbonScreens(),
     );
   }
 }
 
-class FavoritesScreen extends StatefulWidget {
-  const FavoritesScreen({super.key});
+class InbonScreens extends StatefulWidget {
+  const InbonScreens({super.key});
 
   @override
-  State<FavoritesScreen> createState() => _FavoritesScreenState();
+  State<InbonScreens> createState() => _InbonScreensState();
 }
 
-class _FavoritesScreenState extends State<FavoritesScreen> {
+class _InbonScreensState extends State<InbonScreens> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Center(child: Text("Favorites Page")),
+      child: Center(child: Text("Inbox Page")),
     );
   }
 }
