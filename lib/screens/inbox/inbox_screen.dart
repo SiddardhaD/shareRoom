@@ -8,7 +8,7 @@ class InboxMainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerWidget(),
+      drawer: const DrawerWidget(),
       appBar: AppBar(
         title: const Text("Welcome, Buddy"),
         backgroundColor: Colors.lightBlueAccent,
@@ -28,7 +28,7 @@ class InbonScreens extends StatefulWidget {
 class _InbonScreensState extends State<InbonScreens> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Center(child: Text("Inbox Page")),
     );
   }

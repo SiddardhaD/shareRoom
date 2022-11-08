@@ -8,7 +8,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerWidget(),
+      drawer: const DrawerWidget(),
       appBar: AppBar(
         title: const Text("Welcome, Buddy"),
         backgroundColor: Colors.lightBlueAccent,
@@ -28,7 +28,7 @@ class SettingsMainScreen extends StatefulWidget {
 class _SettingsMainScreenState extends State<SettingsMainScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Center(child: Text("Settings Page")),
     );
   }

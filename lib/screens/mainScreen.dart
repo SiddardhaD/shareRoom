@@ -2,6 +2,11 @@
 
 import 'package:flutter/material.dart';
 
+import '../widgets/headings_with_subHeadings.dart';
+import '../widgets/footer_screen.dart';
+import 'home/adds.dart';
+import 'home/banners.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -12,39 +17,27 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: <Widget>[
-          Stack(
-            children: [
-              Padding(
-                padding:
-                    EdgeInsets.only(left: 15, right: 70, top: 15, bottom: 15),
-                child: SizedBox(
-                  height: 50,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Add Location',
-                      hintText: 'Location',
-                    ),
-                  ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.topRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: IconButton(
-                    color: Colors.cyan,
-                    icon: Icon(Icons.location_on),
-                    onPressed: () => Navigator.of(context).pop(),
-                  ),
-                ),
-              )
-            ],
-          )
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Headings(
+              head: "Adds",
+              body: "Add Based On Location",
+            ),
+            Adds(),
+            Headings(
+              head: "Banners",
+              body: "Banners Based On Location",
+            ),
+            Banners(),
+            SizedBox(
+              height: 50,
+            ),
+            FooterPageState()
+          ],
+        ),
       ),
     );
   }
