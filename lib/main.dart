@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:shareme/screens/mainScreen.dart';
+import 'package:shareme/widgets/drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,10 +53,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Splash Screen Example")),
-      body: const Center(
-          child: Text("Welcome to Home Page",
-              style: TextStyle(color: Colors.black, fontSize: 30))),
+      appBar: AppBar(
+        title: const Text("Welcome, Buddy"),
+        backgroundColor: Colors.lightBlueAccent,
+      ),
+      drawer: DrawerWidget(),
+      body: const MainScreen(),
     );
   }
 }
