@@ -1,5 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:shareme/screens/mainScreen.dart';
+
+import '../main.dart';
+import '../screens/addFriend/addFriend_Screen.dart';
+import '../screens/favorites/favorites_screen.dart';
+import '../screens/inbox/inbox_screen.dart';
+import '../screens/notifications/notifications_screen.dart';
+import '../screens/settings/settings_screen.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -43,7 +51,8 @@ class DrawerWidget extends StatelessWidget {
               const Text('Home')
             ]),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
             },
           ),
           ListTile(
@@ -58,7 +67,10 @@ class DrawerWidget extends StatelessWidget {
               const Text('Inbox')
             ]),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const InboxMainScreen()));
             },
           ),
           ListTile(
@@ -73,7 +85,10 @@ class DrawerWidget extends StatelessWidget {
               const Text('Favorites')
             ]),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const FavoritesMainScreen()));
             },
           ),
           ListTile(
@@ -88,7 +103,10 @@ class DrawerWidget extends StatelessWidget {
               const Text('Notifications')
             ]),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const NotificationsScreen()));
             },
           ),
           ListTile(
@@ -103,7 +121,10 @@ class DrawerWidget extends StatelessWidget {
               const Text('Add Friends')
             ]),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const AddFriendMainScreen()));
             },
           ),
           ListTile(
@@ -118,7 +139,11 @@ class DrawerWidget extends StatelessWidget {
               const Text('Settings')
             ]),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SettingsScreen()));
+              // Navigator.pop(context);
             },
           ),
         ],
