@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../widgets/drawer.dart';
 
 class AddFriendMainScreen extends StatelessWidget {
@@ -8,7 +7,7 @@ class AddFriendMainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerWidget(),
+      drawer: const DrawerWidget(),
       appBar: AppBar(
         title: const Text("Welcome, Buddy"),
         backgroundColor: Colors.lightBlueAccent,
@@ -28,7 +27,7 @@ class AddFriendScreen extends StatefulWidget {
 class _AddFriendScreenState extends State<AddFriendScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Center(child: Text("AddFriend Page")),
     );
   }

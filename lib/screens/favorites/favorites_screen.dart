@@ -8,7 +8,7 @@ class FavoritesMainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerWidget(),
+      drawer: const DrawerWidget(),
       appBar: AppBar(
         title: const Text("Welcome, Buddy"),
         backgroundColor: Colors.lightBlueAccent,
@@ -28,7 +28,7 @@ class FavoritesScreen extends StatefulWidget {
 class _FavoritesScreenState extends State<FavoritesScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Center(child: Text("Favorites Page")),
     );
   }

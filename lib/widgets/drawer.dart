@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:shareme/screens/mainScreen.dart';
 
 import '../main.dart';
 import '../screens/addFriend/addFriend_Screen.dart';
@@ -35,7 +34,7 @@ class DrawerWidget extends StatelessWidget {
                 imageUrl:
                     'https://vignette.wikia.nocookie.net/familyguy/images/9/90/FamilyGuy_Single_StewieBackpack_R7.jpg/revision/latest/scale-to-width-down/2000?cb=20200526171841',
                 errorWidget: (c, o, s) =>
-                    CircleAvatar(child: Icon(Icons.person, size: 35)),
+                    const CircleAvatar(child: Icon(Icons.person, size: 35)),
               ),
             ),
           ),
@@ -52,7 +51,7 @@ class DrawerWidget extends StatelessWidget {
             ]),
             onTap: () {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()));
+                  MaterialPageRoute(builder: (context) => const HomeScreen()));
             },
           ),
           ListTile(

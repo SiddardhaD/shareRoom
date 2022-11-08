@@ -8,7 +8,7 @@ class NotificationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerWidget(),
+      drawer: const DrawerWidget(),
       appBar: AppBar(
         title: const Text("Welcome, Buddy"),
         backgroundColor: Colors.lightBlueAccent,
@@ -29,7 +29,7 @@ class NotificationsMainScreen extends StatefulWidget {
 class _NotificationsMainScreenState extends State<NotificationsMainScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Center(child: Text("Notifications Page")),
     );
   }
