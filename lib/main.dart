@@ -88,7 +88,9 @@ class HomeScreen extends StatelessWidget {
                   child: IconButton(
                     color: Colors.white,
                     icon: const Icon(Icons.location_on),
-                    onPressed: () => Navigator.of(context).pop(),
+                    onPressed: () {
+                      debugPrint("Please chose Location");
+                    },
                   ),
                 ),
               )

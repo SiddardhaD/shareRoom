@@ -6,6 +6,8 @@ import '../widgets/headings_with_subHeadings.dart';
 import '../widgets/footer_screen.dart';
 import 'home/adds.dart';
 import 'home/banners.dart';
+import 'home/friends.dart';
+import 'home/recentPost.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -23,15 +25,30 @@ class _MainScreenState extends State<MainScreen> {
         child: Column(
           children: [
             Headings(
+              head: "Posts",
+              body: "Top 5 Recent Posts",
+            ),
+            RecentPost(),
+            Headings(
               head: "Adds",
               body: "Add Based On Location",
             ),
             Adds(),
             Headings(
-              head: "Banners",
-              body: "Banners Based On Location",
+              head: "Houses",
+              body: "Houses Based On Location",
             ),
             Banners(),
+            Headings(
+              head: "1BHK",
+              body: "Friends who want to share 1BHK",
+            ),
+            Friends(),
+            Headings(
+              head: "2BHK",
+              body: "Friends who want to share 2BHK",
+            ),
+            Friends(),
             SizedBox(
               height: 50,
             ),
