@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../main.dart';
+import '../screens/Login/login_screen.dart';
 import '../screens/addFriend/addFriend_Screen.dart';
 import '../screens/favorites/favorites_screen.dart';
 import '../screens/inbox/inbox_screen.dart';
@@ -142,6 +143,23 @@ class DrawerWidget extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => const SettingsScreen()));
+              // Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            // ignore: prefer_const_literals_to_create_immutables
+            title: Row(children: [
+              const Icon(
+                Icons.person,
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+              const Text('Login')
+            ]),
+            onTap: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => LoginPage()));
               // Navigator.pop(context);
             },
           ),
