@@ -23,3 +23,25 @@ class _VerticalTextState extends State<VerticalText> {
     );
   }
 }
+
+class VerticalTextDynamic extends StatelessWidget {
+  final String title;
+  VerticalTextDynamic({required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 60, left: 10),
+      child: RotatedBox(
+          quarterTurns: -1,
+          child: Text(
+            title,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 38,
+              fontWeight: FontWeight.w900,
+            ),
+          )),
+    );
+  }
+}

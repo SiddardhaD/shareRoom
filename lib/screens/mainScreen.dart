@@ -20,7 +20,16 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Padding(
+      child: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Color.fromARGB(255, 254, 254, 254),
+                Color.fromARGB(255, 218, 238, 248),
+              ]),
+        ),
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [

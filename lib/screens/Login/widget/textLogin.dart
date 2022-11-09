@@ -34,3 +34,37 @@ class _TextLoginState extends State<TextLogin> {
     );
   }
 }
+
+class HorizontalTextDynamic extends StatelessWidget {
+  final String title;
+  HorizontalTextDynamic({required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30.0, left: 10.0),
+      child: SizedBox(
+        //color: Colors.green,
+        height: 250,
+        width: 200,
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 60,
+            ),
+            Center(
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w100,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

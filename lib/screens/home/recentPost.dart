@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../descriptions/item_description_screen.dart';
 import '../inbox/chat_screen.dart';
 
 class RecentPost extends StatelessWidget {
@@ -21,6 +22,10 @@ class RecentPost extends StatelessWidget {
             return InkWell(
               onTap: (() {
                 debugPrint("beforee calling Announcement count${""}");
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ItemDescription()));
               }),
               child: Row(children: [
                 Card(
