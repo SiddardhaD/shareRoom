@@ -81,17 +81,17 @@ class FooterPageState extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.w300,
                 fontSize: 12.0,
-                color: Color(0xFF162A49)),
+                color: Colors.white),
           ),
           const SizedBox(
             height: 20,
           ),
           const Text(
-            'Powered by Nexsport',
+            'Powered by ShareWe',
             style: TextStyle(
                 fontWeight: FontWeight.w300,
                 fontSize: 12.0,
-                color: Color(0xFF162A49)),
+                color: Colors.white),
           ),
         ]);
   }

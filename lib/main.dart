@@ -1,7 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shareme/screens/mainScreen.dart';
+import 'package:shareme/screens/notifications/notifications_screen.dart';
+import 'package:shareme/screens/post/post_screen.dart';
 import 'package:shareme/widgets/drawer.dart';
+import 'package:shareme/widgets/keywords.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,8 +35,8 @@ class SplashScreenState extends State<MyHomePage> {
     super.initState();
     Timer(
         const Duration(seconds: 5),
-        () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const HomeScreen())));
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => HomeScreen())));
   }
 
   @override
@@ -47,59 +50,169 @@ class SplashScreenState extends State<MyHomePage> {
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _HomeScreenState();
+  }
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  DateTime selectedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // bottomNavigationBar: NavBarWidget(),
       appBar: AppBar(
+        shadowColor: Colors.black,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/bg/appbar.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        actions: [
+          IconButton(
+            color: Colors.white,
+            icon: const Icon(Icons.notification_add),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const NotificationsScreen()));
+              debugPrint("Please chose Location");
+            },
+          ),
+          IconButton(
+            color: Colors.white,
+            icon: const Icon(Icons.calendar_month),
+            onPressed: () async {
+              _selectDate(context);
+              debugPrint("Please chose date");
+            },
+          )
+        ],
         toolbarHeight: 150,
         bottom: PreferredSize(
             preferredSize: const Size.fromHeight(4.0),
-            child: Stack(children: [
-              const Padding(
-                padding:
-                    EdgeInsets.only(left: 15, right: 70, top: 15, bottom: 15),
-                child: SizedBox(
-                  height: 50,
-                  child: TextField(
-                    decoration: InputDecoration(
-                        filled: true,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              width: 2, color: Colors.white), //<-- SEE HERE
-                        ),
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(),
-                        labelText: 'Add Location',
-                        hintText: 'Location',
-                        labelStyle: TextStyle(
-                            color: Colors.blueAccent,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400)),
-                  ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.topRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: IconButton(
+            child: Column(
+              children: [
+                Row(children: [
+                  IconButton(
                     color: Colors.white,
                     icon: const Icon(Icons.location_on),
                     onPressed: () {
                       debugPrint("Please chose Location");
                     },
                   ),
+                  const Text(
+                    "Change Location",
+                    style: TextStyle(color: Colors.white),
+                  )
+                ]),
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: SizedBox(
+                    // height: 50,
+                    child: InkWell(
+                        onTap: () {
+                          debugPrint("Pressed post");
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PostScreen()));
+                        },
+                        child: Container(
+                          width: (MediaQuery.of(context).size.width / 1),
+                          height: (MediaQuery.of(context).size.width / 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(
+                                (MediaQuery.of(context).size.width / 20))),
+                            color: Colors.white,
+                          ),
+                          child: const Center(
+                              child: Text("Post Something",
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500))),
+                        )),
+                  ),
                 ),
-              )
-            ])),
-        title: const Text("Welcome, Buddy"),
-        backgroundColor: Colors.lightBlueAccent,
+              ],
+            )),
+        title: const Text("ShareWe"),
       ),
       drawer: const DrawerWidget(),
-      body: const MainScreen(),
+      body: MainScreen(),
     );
+  }
+
+  _selectDate(BuildContext context) async {
+    final DateTime? selected = await showDatePicker(
+      helpText: "Date we Remind You",
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2010),
+      lastDate: DateTime(2025),
+    );
+    if (selected != null && selected != selectedDate) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: SizedBox(
+              height: (MediaQuery.of(context).size.height / 2.5),
+              child: Column(children: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text("Room Shifting")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text("Room Vacate")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text("Call Roommate")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text("Call Owner")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text("Room RentPay")),
+                TextButton(
+                    onPressed: () {}, child: const Text("Room Shifting")),
+              ]),
+            ),
+            title: const Text(
+              'You Tried to Set Reminder for',
+              style: TextStyle(color: Colors.black, fontSize: 18),
+            ),
+            // content: Text(
+            //   "Ex:Room Shifting",
+            //   style: TextStyle(color: Colors.black, fontSize: 12),
+            // ),
+
+            // actions: <Widget>[TextButton(onPressed: () {}, child: Text("ok"))],
+          );
+        },
+      );
+      setState(() {
+        selectedDate = selected;
+        debugPrint("Selected Date is $selectedDate");
+      });
+    }
   }
 }

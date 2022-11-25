@@ -14,9 +14,9 @@ class RecentPost extends StatelessWidget {
     var size = MediaQuery.of(context).size;
 
     return SizedBox(
-      height: size.height / 2.5,
+      height: size.height / 3,
       child: ListView.builder(
-          itemCount: 5,
+          itemCount: 3,
           scrollDirection: Axis.vertical,
           itemBuilder: ((context, index) {
             return InkWell(
@@ -33,23 +33,26 @@ class RecentPost extends StatelessWidget {
                   // shape: RoundedRectangleBorder(
                   //   borderRadius: BorderRadius.circular(20),
                   // ),
-                  child: CachedNetworkImage(
-                      placeholder: (context, url) => Image.asset(
-                            "assets/bg/intro.jpg",
-                            fit: BoxFit.fill,
-                            // height: 40,
-                            // width: 20,
-                          ),
-                      // fit: BoxFit.fill,
-                      height: 100,
-                      imageUrl:
-                          'https://i.pinimg.com/originals/bc/0e/24/bc0e245e345b8c8b410f8090561f6f89.jpg',
-                      errorWidget: (c, o, s) => Image.asset(
-                            "assets/bg/intro.jpg",
-                            fit: BoxFit.fill,
-                            height: 20,
-                            width: 40,
-                          )),
+                  child: Container(
+                      width: (MediaQuery.of(context).size.width / 6),
+                      height: (MediaQuery.of(context).size.height / 10),
+                      child: CachedNetworkImage(
+                          placeholder: (context, url) => Image.asset(
+                                "assets/bg/intro.jpg",
+                                fit: BoxFit.fill,
+                                // height: 40,
+                                // width: 20,
+                              ),
+                          // fit: BoxFit.fill,
+                          // height: 100,
+                          imageUrl:
+                              'https://img.squareyards.com/secondaryPortal/637508097033298430-080321021503153.jpg',
+                          errorWidget: (c, o, s) => Image.asset(
+                                "assets/bg/intro.jpg",
+                                fit: BoxFit.fill,
+                                height: 20,
+                                width: 40,
+                              ))),
                 ),
                 Column(
                   children: [
@@ -60,7 +63,7 @@ class RecentPost extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Colors.blueGrey),
+                            color: Colors.white),
                       ),
                     ),
                     Padding(
@@ -71,7 +74,7 @@ class RecentPost extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.normal,
-                              color: Colors.blueGrey),
+                              color: Colors.white),
                         ),
                         SizedBox(
                           width: 2,
@@ -81,7 +84,7 @@ class RecentPost extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
-                              color: Colors.blueGrey),
+                              color: Color.fromARGB(255, 6, 242, 73)),
                         )
                       ]),
                     ),
@@ -90,9 +93,9 @@ class RecentPost extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 25, left: 40),
+                    padding: const EdgeInsets.only(top: 25, left: 20),
                     child: IconButton(
-                      color: Colors.blueGrey,
+                      color: Colors.white,
                       icon: const Icon(Icons.phone),
                       onPressed: _makingPhoneCall,
                     ),
@@ -101,9 +104,9 @@ class RecentPost extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 25, left: 10),
+                    padding: const EdgeInsets.only(top: 25, left: 5),
                     child: IconButton(
-                      color: Colors.blueGrey,
+                      color: Colors.white,
                       icon: const Icon(Icons.message_sharp),
                       onPressed: () {
                         debugPrint("Message Them");

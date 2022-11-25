@@ -1,9 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
-class Friends extends StatelessWidget {
-  const Friends({super.key});
-
+class Explores extends StatelessWidget {
+  const Explores({super.key});
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -12,54 +11,68 @@ class Friends extends StatelessWidget {
       constraints: const BoxConstraints(maxHeight: 130),
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: 8,
+          itemCount: 4,
           itemBuilder: (ctx, index) {
             return InkWell(
-              onTap: () {},
+              onTap: () {
+                debugPrint("Opening Explore widget");
+              },
               child: Padding(
-                padding: const EdgeInsets.only(right: 10),
+                padding: const EdgeInsets.only(right: 3),
                 child: SizedBox(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        width: (MediaQuery.of(context).size.width / 5.9),
-                        height: (MediaQuery.of(context).size.width / 5.9),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(
-                              (MediaQuery.of(context).size.width / 5))),
-                          color: Theme.of(context).highlightColor,
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(
-                              (MediaQuery.of(context).size.width / 5))),
-                          child: CachedNetworkImage(
-                            fit: BoxFit.cover,
-                            // height: 20,
-                            // width: 20,
-                            placeholder: (context, url) => Image.asset(
-                                "assets/bg/pc.png",
-                                fit: BoxFit.cover),
-                            imageUrl:
-                                "https://media.istockphoto.com/photos/indian-high-school-student-using-computer-in-modern-lab-classroom-picture-id520686525?k=6&m=520686525&s=612x612&w=0&h=ZCni184rKAHdV2m9hr3c1rK4zE76pueEtfSHUPu8EQ0=",
-                            errorWidget: (c, o, s) => Image.asset(
-                              "assets/bg/pc.png",
-                              fit: BoxFit.cover,
-                            ),
+                      Card(
+                        elevation: 2,
+                        child: Container(
+                          width: (MediaQuery.of(context).size.width / 4),
+                          height: (MediaQuery.of(context).size.width / 4),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(
+                                (MediaQuery.of(context).size.width / 20))),
+                            color: Colors.white,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Column(children: const [
+                                        Icon(Icons.home_outlined,
+                                            color: Colors.blue, size: 25),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          "House",
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 12),
+                                        )
+                                      ]),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Icon(
+                                      Icons.arrow_circle_right,
+                                      color: Colors.blue,
+                                      size: 15,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        height: (MediaQuery.of(context).size.width / 4) * 0.3,
-                        width: MediaQuery.of(context).size.width / 4.2,
-                        child: const Center(
-                            child: Text(
-                          "Glen",
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 12, color: Colors.white),
-                        )),
                       ),
                     ],
                   ),

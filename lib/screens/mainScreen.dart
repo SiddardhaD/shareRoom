@@ -2,15 +2,18 @@
 
 import 'package:flutter/material.dart';
 
+import '../widgets/adverstise.dart';
+import '../widgets/banners_deatils.dart';
 import '../widgets/headings_with_subHeadings.dart';
 import '../widgets/footer_screen.dart';
 import 'home/adds.dart';
 import 'home/banners.dart';
+import 'home/explore.dart';
 import 'home/friends.dart';
 import 'home/recentPost.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  MainScreen({super.key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -21,21 +24,31 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Color.fromARGB(255, 254, 254, 254),
-                Color.fromARGB(255, 218, 238, 248),
-              ]),
-        ),
-        padding: const EdgeInsets.all(8.0),
+        color: Color.fromARGB(255, 10, 2, 70),
+        // decoration: BoxDecoration(
+        //     image: DecorationImage(
+        //         image: AssetImage("assets/bg/mainwall.png"),
+        //         fit: BoxFit.cover)),
+        // decoration: BoxDecoration(
+        //   gradient: LinearGradient(
+        //       begin: Alignment.topRight,
+        //       end: Alignment.bottomLeft,
+        //       colors: [
+        //         Color.fromARGB(255, 254, 254, 254),
+        //         Color.fromARGB(255, 218, 238, 248),
+        //       ]),
+        // ),
+        padding: EdgeInsets.all(8.0),
         child: Column(
           children: [
             Headings(
+              head: "Explore",
+              body: "Get Exlpore with..",
+            ),
+            Explores(),
+            Headings(
               head: "Posts",
-              body: "Top 5 Recent Posts",
+              body: "Top 3 Recent Posts",
             ),
             RecentPost(),
             Headings(
@@ -47,12 +60,18 @@ class _MainScreenState extends State<MainScreen> {
               head: "Houses",
               body: "Houses Based On Location",
             ),
+            BannersWithDetails(),
+            Headings(
+              head: "Houses",
+              body: "Houses Based On Location",
+            ),
             Banners(),
             Headings(
               head: "1BHK",
               body: "Friends who want to share 1BHK",
             ),
             Friends(),
+            Advertise(),
             Headings(
               head: "2BHK",
               body: "Friends who want to share 2BHK",
