@@ -35,7 +35,7 @@ class Banners extends StatelessWidget {
                   ),
                   fit: BoxFit.cover,
                   imageUrl:
-                      'https://th.bing.com/th/id/R.6d80f9edc5543197290ffab1211cd4c2?rik=lk2O9aYiUPyLvQ&riu=http%3a%2f%2fpapers.co%2fwallpaper%2fpapers.co-af13-familyguy-simpsons-comics-illust-tv-art-36-3840x2400-4k-wallpaper.jpg&ehk=3M%2bE9rva1EnNgYcMaeVpSzQ5aXTPfEFi6VyEdZYSWHo%3d&risl=&pid=ImgRaw&r=0',
+                      'https://i.pinimg.com/originals/61/2c/ae/612caee0c576f498ee26381eb65ddb0d.jpg',
                   errorWidget: (c, o, s) =>
                       Image.asset("assets/bg/family.jpg", fit: BoxFit.cover),
                 ),

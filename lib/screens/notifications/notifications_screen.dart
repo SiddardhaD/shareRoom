@@ -30,7 +30,7 @@ class _NotificationsMainScreenState extends State<NotificationsMainScreen> {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Center(child: Text("Notifications Page")),
+      child: Center(child: Text("No Notifications")),
     );
   }
 }

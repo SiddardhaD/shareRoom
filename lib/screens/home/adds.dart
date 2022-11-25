@@ -31,7 +31,7 @@ class Adds extends StatelessWidget {
                     // fit: BoxFit.fill,
                     height: 100,
                     imageUrl:
-                        'https://i.pinimg.com/originals/bc/0e/24/bc0e245e345b8c8b410f8090561f6f89.jpg',
+                        'https://www.sheryna.ph/media/fotos/southernhomes_2_1478181579.JPG',
                     errorWidget: (c, o, s) => Image.asset(
                           "assets/bg/family.jpg",
                           fit: BoxFit.fill,

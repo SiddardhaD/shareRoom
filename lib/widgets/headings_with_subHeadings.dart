@@ -15,9 +15,9 @@ class Headings extends StatelessWidget {
           child: Text(
             head,
             style: const TextStyle(
-                fontSize: 44,
-                fontWeight: FontWeight.w900,
-                color: Color.fromARGB(255, 4, 144, 118)),
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+                color: Color.fromARGB(255, 6, 242, 73)),
           ),
         ),
         Align(
@@ -27,7 +27,7 @@ class Headings extends StatelessWidget {
             style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w300,
-                color: Color.fromARGB(255, 3, 73, 59)),
+                color: Color.fromARGB(255, 255, 255, 255)),
           ),
         ),
       ]),

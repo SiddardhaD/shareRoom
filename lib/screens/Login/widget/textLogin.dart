@@ -9,7 +9,7 @@ class _TextLoginState extends State<TextLogin> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 30.0, left: 10.0),
+      padding:  EdgeInsets.only(top: 30.0, left: 10.0),
       child: Container(
         //color: Colors.green,
         height: 250,
@@ -19,7 +19,7 @@ class _TextLoginState extends State<TextLogin> {
             Container(
               height: 60,
             ),
-            const Center(
+             Center(
               child: Text(
                 'Helps To Find You The Best Room Partner to Share',
                 style: TextStyle(
@@ -42,7 +42,7 @@ class HorizontalTextDynamic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 30.0, left: 10.0),
+      padding:  EdgeInsets.only(top: 30.0, left: 10.0),
       child: SizedBox(
         //color: Colors.green,
         height: 250,
@@ -55,7 +55,41 @@ class HorizontalTextDynamic extends StatelessWidget {
             Center(
               child: Text(
                 title,
-                style: const TextStyle(
+                style:  TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w100,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class HorizontalTextDynamic1 extends StatelessWidget {
+  final String title;
+  HorizontalTextDynamic1({required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding:  EdgeInsets.only(top: 30.0, left: 10.0),
+      child: SizedBox(
+        //color: Colors.green,
+        // height: 250,
+        // width: 200,
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 60,
+            ),
+            Center(
+              child: Text(
+                title,
+                style:  TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w100,
                   color: Colors.white,

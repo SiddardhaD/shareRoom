@@ -52,7 +52,7 @@ class DrawerWidget extends StatelessWidget {
             ]),
             onTap: () {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()));
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
             },
           ),
           ListTile(
