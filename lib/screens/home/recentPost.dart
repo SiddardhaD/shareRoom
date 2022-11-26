@@ -38,7 +38,7 @@ class RecentPost extends StatelessWidget {
                       height: (MediaQuery.of(context).size.height / 10),
                       child: CachedNetworkImage(
                           placeholder: (context, url) => Image.asset(
-                                "assets/bg/intro.jpg",
+                                "assets/bg/loading.jpg",
                                 fit: BoxFit.fill,
                                 // height: 40,
                                 // width: 20,
@@ -48,7 +48,7 @@ class RecentPost extends StatelessWidget {
                           imageUrl:
                               'https://img.squareyards.com/secondaryPortal/637508097033298430-080321021503153.jpg',
                           errorWidget: (c, o, s) => Image.asset(
-                                "assets/bg/intro.jpg",
+                                "assets/bg/loading.jpg",
                                 fit: BoxFit.fill,
                                 height: 20,
                                 width: 40,

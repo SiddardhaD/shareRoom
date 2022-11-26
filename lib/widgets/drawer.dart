@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import '../main.dart';
 import '../screens/Login/login_screen.dart';
 import '../screens/addFriend/addFriend_Screen.dart';
+import '../screens/addPost/addPost_screen.dart';
 import '../screens/favorites/favorites_screen.dart';
 import '../screens/inbox/inbox_screen.dart';
+import '../screens/mypost/myPost_screen.dart';
 import '../screens/notifications/notifications_screen.dart';
 import '../screens/settings/settings_screen.dart';
 
@@ -81,6 +83,46 @@ class DrawerWidget extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => const InboxMainScreen()));
+            },
+          ),
+          ListTile(
+            // ignore: prefer_const_literals_to_create_immutables
+            title: Row(children: [
+              const Icon(
+                Icons.polyline_sharp,
+                color: Colors.white,
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+              const Text(
+                'Request Posted',
+                style: TextStyle(color: Colors.white),
+              )
+            ]),
+            onTap: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => const MyPost()));
+            },
+          ),
+          ListTile(
+            // ignore: prefer_const_literals_to_create_immutables
+            title: Row(children: [
+              const Icon(
+                Icons.event_available_rounded,
+                color: Colors.white,
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+              const Text(
+                'Add Posted',
+                style: TextStyle(color: Colors.white),
+              )
+            ]),
+            onTap: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => const MyAddPost()));
             },
           ),
           ListTile(

@@ -13,7 +13,15 @@ class FavoritesMainScreen extends StatelessWidget {
       drawer: const DrawerWidget(),
       appBar: AppBar(
         title: const Text("Favorites"),
-        backgroundColor: Colors.lightBlueAccent,
+        shadowColor: Colors.black,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/bg/appbar.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
       ),
       body: const FavoritesScreen(),
     );
@@ -31,308 +39,155 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//AppBar
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.only(left: 0, right: 0, top: 20, bottom: 20),
-        child: Center(
-          /** Card Widget **/
-          child: Column(
-            children: [
-              //Card 1
-              Card(
-                elevation: 50,
-                shadowColor: Colors.black,
-                color: Colors.greenAccent[100],
-                child: SizedBox(
-                  width: 310,
-                  height: 400,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
+      body: Center(
+        child: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                Color.fromARGB(255, 10, 2, 70),
+                Color.fromARGB(255, 2, 0, 14),
+              ])),
+          constraints: const BoxConstraints(maxWidth: 400),
+          child: ListView.builder(
+            itemCount: _articles.length,
+            itemBuilder: (BuildContext context, int index) {
+              final _item = _articles[index];
+              return Container(
+                height: 136,
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
+                decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xFFE0E0E0)),
+                    borderRadius: BorderRadius.circular(8.0)),
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.green[500],
-                          radius: 108,
-                          child: const CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                "https://static.wikia.nocookie.net/familyguy/images/f/f1/Griffin_Home.jpg/revision/latest?cb=20090614171921"),
-                            //NetworkImage
-                            radius: 100,
-                          ), //CircleAvatar
-                        ), //CircleAvatar
-                        const SizedBox(
-                          height: 10,
-                        ), //SizedBox
                         Text(
-                          '2BHK in Kondapur',
-                          style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.green[900],
-                            fontWeight: FontWeight.w500,
-                          ), //Textstyle
-                        ), //Text
-                        const SizedBox(
-                          height: 10,
-                        ), //SizedBox
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Posted By',
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.green[900],
-                                ), //Textstyle
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                'Peter Griffins',
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.green[900],
-                                ), //Textstyle
-                              )
-                            ]), //Text
-                        const SizedBox(
-                          height: 10,
-                        ), //SizedBox
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: 100,
-                              child: TextButton(
-                                onPressed: () {},
-                                // : Colors.green,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(4.0),
-                                  child: Row(
-                                    children: const [
-                                      Icon(Icons.location_on),
-                                      Text('Map'),
-                                    ],
-                                  ), //Row
-                                ), //Padding
-                              ), //RaisedButton
-                            ),
-                            IconButton(
-                              color: Colors.blue,
-                              icon: const Icon(Icons.message_sharp),
-                              onPressed: () {
-                                debugPrint("Message Them");
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const ChatWe()),
-                                );
-                              },
-                            ),
-                            FavoriteButton(
-                              iconSize: 35,
-                              isFavorite: false,
-                              valueChanged: (_isFavorite) {
-                                debugPrint('Is Favorite : $_isFavorite');
-                              },
-                            ),
-                          ],
+                          _item.title,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.white),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-
-              // Card 2
-              Card(
-                elevation: 50,
-                shadowColor: Colors.black,
-                color: Colors.greenAccent[100],
-                child: SizedBox(
-                  width: 310,
-                  height: 400,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.green[500],
-                          radius: 108,
-                          child: const CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                "https://static.wikia.nocookie.net/oggyandthecockroaches/images/e/ea/Oggy%27s_House.png/revision/latest?cb=20210401014131"),
-                            //NetworkImage
-                            radius: 100,
-                          ), //CircleAvatar
-                        ), //CircleAvatar
-                        const SizedBox(
-                          height: 10,
-                        ), //SizedBox
-                        Text(
-                          '2BHK in Kondapur',
-                          style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.green[900],
-                            fontWeight: FontWeight.w500,
-                          ), //Textstyle
-                        ), //Text
-                        const SizedBox(
-                          height: 10,
-                        ), //SizedBox
+                        const SizedBox(height: 8),
+                        Text("${_item.author} · ${_item.postedOn}",
+                            style: TextStyle(color: Colors.white)),
+                        const SizedBox(height: 8),
                         Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Posted By',
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.green[900],
-                                ), //Textstyle
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                'Peter Griffins',
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.green[900],
-                                ), //Textstyle
-                              )
-                            ]), //Text
-                        const SizedBox(
-                          height: 10,
-                        ), //SizedBox
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            SizedBox(
-                              width: 100,
-                              child: TextButton(
-                                onPressed: () {},
-                                // : Colors.green,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(4.0),
-                                  child: Row(
-                                    children: const [
-                                      Icon(Icons.location_on),
-                                      Text('Map'),
-                                    ],
-                                  ), //Row
-                                ), //Padding
-                              ), //RaisedButton
-                            ),
-                            IconButton(
-                              color: Colors.blue,
-                              icon: const Icon(Icons.message_sharp),
-                              onPressed: () {
-                                debugPrint("Message Them");
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const ChatWe()),
-                                );
+                            Icons.bookmark_border_rounded,
+                            Icons.share,
+                            Icons.delete
+                          ].map((e) {
+                            return InkWell(
+                              onTap: () {
+                                debugPrint("$_item is pressed");
                               },
-                            ),
-                            FavoriteButton(
-                              iconSize: 35,
-                              isFavorite: false,
-                              valueChanged: (_isFavorite) {
-                                debugPrint('Is Favorite : $_isFavorite');
-                              },
-                            ),
-                          ],
-                        ),
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 8.0),
+                                child: Icon(
+                                  e,
+                                  size: 16,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                        )
                       ],
-                    ),
-                  ),
+                    )),
+                    Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                            color: Colors.grey,
+                            borderRadius: BorderRadius.circular(8.0),
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(_item.imageUrl),
+                            ))),
+                  ],
                 ),
-              )
-              // Card(
-              //   elevation: 50,
-              //   shadowColor: Colors.black,
-              //   color: Colors.yellowAccent[100],
-              //   child: SizedBox(
-              //     width: 310,
-              //     height: 510,
-              //     child: Padding(
-              //       padding: const EdgeInsets.all(20.0),
-              //       child: Column(
-              //         children: [
-              //           CircleAvatar(
-              //             backgroundColor: Colors.yellow[700],
-              //             radius: 108,
-              //             child: const CircleAvatar(
-              //               backgroundImage: NetworkImage(
-              //                   "https://static.wikia.nocookie.net/oggyandthecockroaches/images/e/ea/Oggy%27s_House.png/revision/latest?cb=20210401014131"),
-              //               //NetworkImage
-              //               radius: 100,
-              //             ),
-              //           ),
-              //           const SizedBox(
-              //             height: 10,
-              //           ),
-              //           Text(
-              //             'GeeksforGeeks',
-              //             style: TextStyle(
-              //               fontSize: 30,
-              //               color: Colors.yellow[900],
-              //               fontWeight: FontWeight.w500,
-              //             ),
-              //           ),
-              //           const SizedBox(
-              //             height: 10,
-              //           ),
-              //           Text(
-              //             'GeeksforGeeks is a computer science portalfor geeks at geeksforgeeks.org. It contains well written, well thought and well explained computer science and programming articles, quizzes, projects, interview experiences and much more!!',
-              //             style: TextStyle(
-              //               fontSize: 15,
-              //               color: Colors.yellow[900],
-              //             ), //Textstyle
-              //           ), //Text
-              //           const SizedBox(
-              //             height: 10,
-              //           ),
-              //           Row(
-              //             mainAxisAlignment: MainAxisAlignment.center,
-              //             children: [
-              //               SizedBox(
-              //                 width: 100,
-              //                 child: TextButton(
-              //                   onPressed: () {},
-              //                   // color: Colors.yellow[600],
-              //                   child: Padding(
-              //                     padding: const EdgeInsets.all(4.0),
-              //                     child: Row(
-              //                       children: const [
-              //                         Icon(Icons.touch_app),
-              //                         Text('Visit'),
-              //                       ],
-              //                     ),
-              //                   ),
-              //                 ),
-              //               ),
-              //               FavoriteButton(
-              //                 isFavorite: true,
-              //                 valueChanged: (_isFavorite) {
-              //                   debugPrint('Is Favorite : $_isFavorite');
-              //                 },
-              //               ),
-              //             ],
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //   ),
-              // ),
-            ],
+              );
+            },
           ),
         ),
       ),
     );
   }
 }
+
+class Article {
+  final String title;
+  final String imageUrl;
+  final String author;
+  final String postedOn;
+  final String testTap;
+
+  Article(
+      {required this.title,
+      required this.imageUrl,
+      required this.author,
+      required this.postedOn,
+      required this.testTap});
+}
+
+final List<Article> _articles = [
+  Article(
+      title: "Instagram quietly limits ‘daily time limit’ option",
+      author: "MacRumors",
+      imageUrl: "https://picsum.photos/id/1000/960/540",
+      postedOn: "Yesterday",
+      testTap: "Index1"),
+  Article(
+      title: "Google Search dark theme goes fully black for some on the web",
+      imageUrl: "https://picsum.photos/id/1010/960/540",
+      author: "9to5Google",
+      postedOn: "4 hours ago",
+      testTap: "Index1"),
+  Article(
+    title: "Check your iPhone now: warning signs someone is spying on you",
+    author: "New York Times",
+    imageUrl: "https://picsum.photos/id/1001/960/540",
+    postedOn: "2 days ago",
+    testTap: "Index1",
+  ),
+  Article(
+    title:
+        "Amazon’s incredibly popular Lost Ark MMO is ‘at capacity’ in central Europe",
+    author: "MacRumors",
+    imageUrl: "https://picsum.photos/id/1002/960/540",
+    postedOn: "22 hours ago",
+    testTap: "Index1",
+  ),
+  Article(
+    title:
+        "Panasonic's 25-megapixel GH6 is the highest resolution Micro Four Thirds camera yet",
+    author: "Polygon",
+    imageUrl: "https://picsum.photos/id/1020/960/540",
+    postedOn: "2 hours ago",
+    testTap: "Index1",
+  ),
+  Article(
+    title: "Samsung Galaxy S22 Ultra charges strangely slowly",
+    author: "TechRadar",
+    imageUrl: "https://picsum.photos/id/1021/960/540",
+    postedOn: "10 days ago",
+    testTap: "Index1",
+  ),
+  Article(
+    title: "Snapchat unveils real-time location sharing",
+    author: "Fox Business",
+    imageUrl: "https://picsum.photos/id/1060/960/540",
+    postedOn: "10 hours ago",
+    testTap: "Index1",
+  ),
+];

@@ -25,7 +25,14 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        color: Color.fromARGB(255, 10, 2, 70),
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+              Color.fromARGB(255, 10, 2, 70),
+              Color.fromARGB(255, 2, 0, 14),
+            ])),
         // decoration: BoxDecoration(
         //     image: DecorationImage(
         //         image: AssetImage("assets/bg/mainwall.png"),

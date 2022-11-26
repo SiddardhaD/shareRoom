@@ -14,15 +14,10 @@ class KeywordWidget extends StatelessWidget {
               Radius.circular((MediaQuery.of(context).size.width / 20))),
           color: Colors.white,
         ),
-        child: InkWell(
-          onTap: () {
-            debugPrint("Keyword clicked");
-          },
-          child: Center(
-            child: Text(
-              keyword,
-              style: TextStyle(color: Colors.black),
-            ),
+        child: Center(
+          child: Text(
+            keyword,
+            style: const TextStyle(color: Colors.black),
           ),
         ));
   }

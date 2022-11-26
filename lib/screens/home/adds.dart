@@ -25,16 +25,16 @@ class Adds extends StatelessWidget {
                 // ),
                 child: CachedNetworkImage(
                     placeholder: (context, url) => Image.asset(
-                          "assets/bg/family.jpg",
-                          fit: BoxFit.fill,
+                          "assets/bg/loading.jpg",
+                          fit: BoxFit.cover,
                         ),
                     // fit: BoxFit.fill,
                     height: 100,
                     imageUrl:
                         'https://www.sheryna.ph/media/fotos/southernhomes_2_1478181579.JPG',
                     errorWidget: (c, o, s) => Image.asset(
-                          "assets/bg/family.jpg",
-                          fit: BoxFit.fill,
+                          "assets/bg/loading.jpg",
+                          fit: BoxFit.cover,
                         )),
               ),
             );
