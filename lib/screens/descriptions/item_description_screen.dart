@@ -18,29 +18,39 @@ class _ItemDescriptionState extends State<ItemDescription> {
     return Scaffold(
         floatingActionButton: floatingButton(),
         body: SafeArea(
-          child: Column(
-            children: <Widget>[
-              appBar(),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Banners(),
-              ),
-              Container(
-                  child: const Text(
-                    "A style icon gets some love from one of today's top "
-                    "trendsetters. Pharrell Williams puts his creative spin on these "
-                    "shoes, which have all the clean, classicdetails of the beloved Stan Smith.",
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(height: 1.5, color: Color(0xFF6F8398)),
-                  ),
-                  padding: EdgeInsets.all(16)),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ButtonState(
-                  text: "Location",
+          child: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [
+                  Color.fromARGB(255, 2, 0, 14),
+                  Color.fromARGB(255, 10, 2, 70),
+                ])),
+            child: Column(
+              children: <Widget>[
+                appBarWhite(),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Banners(),
                 ),
-              )
-            ],
+                Container(
+                    child: const Text(
+                      "A style icon gets some love from one of today's top "
+                      "trendsetters. Pharrell Williams puts his creative spin on these "
+                      "shoes, which have all the clean, classicdetails of the beloved Stan Smith.",
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(height: 1.5, color: Colors.white),
+                    ),
+                    padding: EdgeInsets.all(16)),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ButtonState(
+                    text: "Location",
+                  ),
+                )
+              ],
+            ),
           ),
         ));
   }
@@ -50,7 +60,8 @@ class _ItemDescriptionState extends State<ItemDescription> {
       marginBottom: 10, //margin bottom
       icon: Icons.menu, //icon on Floating action button
       activeIcon: Icons.close, //icon when menu is expanded on button
-      backgroundColor: Colors.deepOrangeAccent, //background color of button
+      backgroundColor:
+          Color.fromARGB(255, 6, 242, 73), //background color of button
       foregroundColor: Colors.white, //font color, icon color in button
       activeBackgroundColor:
           Colors.deepPurpleAccent, //background color when menu is expanded
@@ -131,6 +142,51 @@ class _ItemDescriptionState extends State<ItemDescription> {
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF2F2F3E)),
+                ),
+              ],
+            ),
+          ),
+          // Image.asset(
+          //   "images/bag_button.png",
+          //   width: 27,
+          //   height: 30,
+          // ),
+        ],
+      ),
+    );
+  }
+
+  Widget appBarWhite() {
+    return Container(
+      padding: EdgeInsets.all(16),
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          IconButton(
+            color: Colors.blue,
+            icon: const Icon(Icons.arrow_back_rounded),
+            onPressed: () {
+              Navigator.pop(context);
+              debugPrint("Message Them");
+            },
+          ),
+          Container(
+            child: Column(
+              children: <Widget>[
+                Text(
+                  "POSTED BY",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w300,
+                      fontSize: 14,
+                      color: Colors.white),
+                ),
+                Text(
+                  "Peter Griffins",
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ],
             ),

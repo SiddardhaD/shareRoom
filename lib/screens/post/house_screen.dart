@@ -14,6 +14,30 @@ class HouseScreen extends StatefulWidget {
 
 class _HouseScreenState extends State<HouseScreen> {
   @override
+  int _city = 0;
+  int _selectRelatedShare = 0;
+  double _budget = 3000.0;
+  void checkLocation(int index) {
+    setState(() {
+      _city = index;
+      debugPrint("city is $_city");
+    });
+  }
+
+  void selectRelatedShare(int index) {
+    setState(() {
+      _selectRelatedShare = index;
+      debugPrint("Related search is $_selectRelatedShare");
+    });
+  }
+
+  void selectBudget(double index) {
+    setState(() {
+      _budget = index;
+      debugPrint("budget is $_budget");
+    });
+  }
+
   Widget build(BuildContext context) {
     double _value = 20;
     return SingleChildScrollView(
@@ -25,7 +49,7 @@ class _HouseScreenState extends State<HouseScreen> {
           children: [
             const Headings(
               head: "Are you",
-              body: "looking for Houses Near to ...",
+              body: "looking for PG Near to ...",
             ),
             const SizedBox(
               // height: (MediaQuery.of(context).size.width / 20),
@@ -87,7 +111,8 @@ class _HouseScreenState extends State<HouseScreen> {
                 itemBuilder: (BuildContext context, int index) {
                   return InkWell(
                     onTap: () {
-                      debugPrint("Opening Explore widget");
+                      debugPrint("Opening Explore Houses");
+                      checkLocation(index);
                     },
                     child: SizedBox(
                       child: Column(
@@ -106,6 +131,24 @@ class _HouseScreenState extends State<HouseScreen> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  _city == index
+                                      ? const Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 0.0,
+                                              right: 8.0,
+                                              bottom: 8.2),
+                                          child: Align(
+                                            child: Icon(
+                                              Icons.check_circle,
+                                              size: 18,
+                                              color: Colors.green,
+                                            ),
+                                            alignment: Alignment.topRight,
+                                          ),
+                                        )
+                                      : Container(
+                                          padding: EdgeInsets.all(8),
+                                        ),
                                   Icon(Icons.location_city,
                                       color: Colors.blue, size: 25),
                                   SizedBox(
@@ -140,7 +183,7 @@ class _HouseScreenState extends State<HouseScreen> {
             ),
             GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
+                  crossAxisCount: 2,
                   childAspectRatio: 3,
                   mainAxisSpacing: 5,
                   crossAxisSpacing: 10,
@@ -149,42 +192,87 @@ class _HouseScreenState extends State<HouseScreen> {
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (BuildContext context, int index) {
-                  return KeywordWidget(
-                    keyword: "1BHK",
+                  return InkWell(
+                    onTap: () {
+                      selectRelatedShare(index);
+                    },
+                    child: Card(
+                      color: Colors.white,
+                      elevation: 2,
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            KeywordWidget(
+                              keyword: "2BHK",
+                            ),
+                            _selectRelatedShare == index
+                                ? Icon(
+                                    Icons.check_circle,
+                                    size: 18,
+                                    color: Colors.green,
+                                  )
+                                : Container()
+                          ]),
+                    ),
                   );
                 }),
             const SizedBox(
               // height: (MediaQuery.of(context).size.width / 20),
               height: 10,
             ),
-            const Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  "Budget",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    "Budget",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
                 ),
               ),
-            ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    _budget.toString() + "/-",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                ),
+              )
+            ]),
+            // SizedBox(
+            //   width: double.maxFinite,
+            //   child: CupertinoSlider(
+            //     min: 0.0,
+            //     max: 100.0,
+            //     value: _budget,
+            //     activeColor: CupertinoColors.activeGreen,
+            //     thumbColor: CupertinoColors.systemPink,
+            //     divisions: 10,
+            //     onChanged: (value) {
+            //       debugPrint("value is $value");
+            //       selectBudget(value);
+            //     },
+            //   ),
+            // ),
             Slider(
-              min: 0.0,
-              max: 100.0,
-              value: _value,
-              divisions: 10,
-              label: '${_value.round()}',
+              min: 3000.0,
+              max: 25000.0,
+              value: _budget,
+              divisions: 25,
+              label: '${_budget.round()}',
               onChanged: (value) {
-                setState(() {
-                  debugPrint(value.toString());
-                  _value = value;
-                });
+                selectBudget(value);
               },
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(
                     children: [
@@ -193,7 +281,7 @@ class _HouseScreenState extends State<HouseScreen> {
                         style: TextStyle(color: Colors.blue, fontSize: 25),
                       ),
                       Text(
-                        "10",
+                        "3,000",
                         style: TextStyle(color: Colors.blue, fontSize: 25),
                       ),
                     ],
@@ -201,7 +289,10 @@ class _HouseScreenState extends State<HouseScreen> {
                   SizedBox(
                     width: (MediaQuery.of(context).size.width / 10),
                   ),
-                  const Text("-"),
+                  const Text(
+                    "-",
+                    style: TextStyle(color: Colors.white),
+                  ),
                   SizedBox(
                     width: (MediaQuery.of(context).size.width / 10),
                   ),
@@ -212,7 +303,7 @@ class _HouseScreenState extends State<HouseScreen> {
                         style: TextStyle(color: Colors.blue, fontSize: 25),
                       ),
                       Text(
-                        "1,000",
+                        "25,000",
                         style: TextStyle(color: Colors.blue, fontSize: 25),
                       ),
                     ],
@@ -239,6 +330,7 @@ class _HouseScreenState extends State<HouseScreen> {
               padding: const EdgeInsets.all(8.0),
               child: TextField(
                 maxLines: 8,
+
                 // controller: controller.messageController,
                 decoration: const InputDecoration(
                     labelText: 'Ex: I am an Introver, please Take care',
@@ -249,6 +341,7 @@ class _HouseScreenState extends State<HouseScreen> {
                     ),
                     border: InputBorder.none),
                 textInputAction: TextInputAction.newline,
+                style: TextStyle(color: Colors.white),
                 keyboardType: TextInputType.multiline,
 
                 inputFormatters: [
@@ -258,12 +351,21 @@ class _HouseScreenState extends State<HouseScreen> {
                 // onSubmitted: (value) => controller.onSubmit(),
               ),
             ),
-            ButtonState(
-              text: "Submit",
+            InkWell(
+              onTap: () {
+                test();
+              },
+              child: ButtonState(
+                text: "Submit",
+              ),
             )
           ],
         ),
       ),
     );
+  }
+
+  void test() {
+    debugPrint("Testing buttion");
   }
 }

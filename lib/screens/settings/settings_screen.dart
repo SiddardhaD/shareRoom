@@ -12,6 +12,15 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       drawer: const DrawerWidget(),
       appBar: AppBar(
+        shadowColor: Colors.black,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/bg/appbar.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
         title: const Text("Settings"),
         backgroundColor: Colors.lightBlueAccent,
       ),
@@ -31,8 +40,15 @@ class _SettingsMainScreenState extends State<SettingsMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white.withOpacity(.94),
-      body: Padding(
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+              Color.fromARGB(255, 255, 255, 255),
+              Color.fromARGB(255, 2, 0, 14),
+            ])),
         padding: const EdgeInsets.all(10),
         child: ListView(
           children: [
@@ -94,7 +110,6 @@ class _SettingsMainScreenState extends State<SettingsMainScreen> {
             ),
             // You can add a settings title
             SettingsGroup(
-              settingsGroupTitle: "Account",
               items: [
                 SettingsItem(
                   onTap: () {},

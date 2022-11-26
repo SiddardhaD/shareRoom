@@ -11,6 +11,15 @@ class InboxMainScreen extends StatelessWidget {
     return Scaffold(
       drawer: const DrawerWidget(),
       appBar: AppBar(
+        shadowColor: Colors.black,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/bg/appbar.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
         title: const Text("Inbox"),
         backgroundColor: Colors.lightBlueAccent,
       ),
@@ -54,28 +63,9 @@ class _InbonScreensState extends State<InbonScreens> {
           image:
               "https://static.wikia.nocookie.net/villains/images/c/c7/Meg_Griffin.png/revision/latest/top-crop/width/360/height/360?cb=20220612130102",
           time: "28 Mar"),
-      // ChatUsers(
-      //     text: "Debra Hawkins",
-      //     secondaryText: "Thankyou, It's awesome",
-      //     image: "images/userImage5.jpeg",
-      //     time: "23 Mar"),
-      // ChatUsers(
-      //     text: "Jacob Pena",
-      //     secondaryText: "will update you in evening",
-      //     image: "images/userImage6.jpeg",
-      //     time: "17 Mar"),
-      // ChatUsers(
-      //     text: "Andrey Jones",
-      //     secondaryText: "Can you please share the file?",
-      //     image: "images/userImage7.jpeg",
-      //     time: "24 Feb"),
-      // ChatUsers(
-      //     text: "John Wick",
-      //     secondaryText: "How are you?",
-      //     image: "images/userImage8.jpeg",
-      //     time: "18 Feb"),
     ];
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 10, 2, 70),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
@@ -89,8 +79,10 @@ class _InbonScreensState extends State<InbonScreens> {
                   children: <Widget>[
                     Text(
                       "Chats",
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
                     ),
                   ],
                 ),
@@ -162,7 +154,7 @@ class _ConversationListState extends State<ConversationList> {
                         children: <Widget>[
                           Text(
                             widget.text,
-                            style: TextStyle(fontSize: 16),
+                            style: TextStyle(fontSize: 16, color: Colors.white),
                           ),
                           SizedBox(
                             height: 6,
@@ -171,7 +163,7 @@ class _ConversationListState extends State<ConversationList> {
                             widget.messageText,
                             style: TextStyle(
                                 fontSize: 13,
-                                color: Colors.grey.shade600,
+                                color: Colors.white,
                                 fontWeight: widget.isMessageRead
                                     ? FontWeight.bold
                                     : FontWeight.normal),
@@ -187,6 +179,7 @@ class _ConversationListState extends State<ConversationList> {
               widget.time,
               style: TextStyle(
                   fontSize: 12,
+                  color: Colors.white,
                   fontWeight: widget.isMessageRead
                       ? FontWeight.bold
                       : FontWeight.normal),

@@ -16,8 +16,16 @@ class AddFriendMainScreen extends StatelessWidget {
     return Scaffold(
       drawer: const DrawerWidget(),
       appBar: AppBar(
+        shadowColor: Colors.black,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/bg/appbar.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
         title: const Text("Welcome, Buddy"),
-        backgroundColor: Colors.lightBlueAccent,
       ),
       body: const AddFriendScreen(),
     );
@@ -35,12 +43,14 @@ class _AddFriendScreenState extends State<AddFriendScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [Colors.blueGrey, Colors.lightBlueAccent]),
-        ),
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+              Color.fromARGB(255, 10, 2, 70),
+              Color.fromARGB(255, 2, 0, 14),
+            ])),
         child: ListView(children: <Widget>[
           Column(
             children: <Widget>[
@@ -72,7 +82,7 @@ class _AddFriendScreenState extends State<AddFriendScreen> {
               ReferButton(),
               Padding(
                 padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.height / 10),
+                    left: MediaQuery.of(context).size.height / 12),
                 child: Row(children: <Widget>[
                   VerticalTextDynamic(
                     title: 'INVITE WE',

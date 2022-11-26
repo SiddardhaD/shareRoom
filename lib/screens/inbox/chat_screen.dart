@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
 import '../../widgets/chatMessageModel.dart';
 
 class ChatWe extends StatefulWidget {
@@ -24,10 +25,11 @@ class _ChatWeState extends State<ChatWe> {
           messageContent: "Is there any thing wrong?", messageType: "sender"),
     ];
     return Scaffold(
+        backgroundColor: Color.fromARGB(255, 10, 2, 70),
         appBar: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
+          backgroundColor: Color.fromARGB(255, 10, 2, 70),
           flexibleSpace: SafeArea(
             child: Container(
               padding: const EdgeInsets.only(right: 16),
@@ -35,11 +37,14 @@ class _ChatWeState extends State<ChatWe> {
                 children: <Widget>[
                   IconButton(
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomeScreen()));
                     },
                     icon: const Icon(
                       Icons.arrow_back,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(
@@ -61,7 +66,9 @@ class _ChatWeState extends State<ChatWe> {
                         const Text(
                           "Kriss Benwat",
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w600),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
                         ),
                         const SizedBox(
                           height: 6,
@@ -69,7 +76,8 @@ class _ChatWeState extends State<ChatWe> {
                         Text(
                           "Online/Away",
                           style: TextStyle(
-                              color: Colors.grey.shade600, fontSize: 13),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              fontSize: 13),
                         ),
                       ],
                     ),
@@ -121,7 +129,7 @@ class _ChatWeState extends State<ChatWe> {
                 padding: const EdgeInsets.only(left: 10, bottom: 10, top: 10),
                 height: 60,
                 width: double.infinity,
-                color: Colors.white,
+                color: Color.fromARGB(255, 10, 2, 70),
                 child: Row(
                   children: <Widget>[
                     // GestureDetector(
@@ -145,9 +153,10 @@ class _ChatWeState extends State<ChatWe> {
                     ),
                     const Expanded(
                       child: TextField(
+                        style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                             hintText: "Write message...",
-                            hintStyle: TextStyle(color: Colors.black54),
+                            hintStyle: TextStyle(color: Colors.white),
                             border: InputBorder.none),
                       ),
                     ),
