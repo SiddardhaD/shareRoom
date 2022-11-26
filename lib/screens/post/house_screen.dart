@@ -18,6 +18,7 @@ class _HouseScreenState extends State<HouseScreen> {
     double _value = 20;
     return SingleChildScrollView(
       child: Container(
+        color: Color.fromARGB(255, 10, 2, 70),
         padding: const EdgeInsets.all(8),
         alignment: Alignment.topLeft,
         child: Column(
@@ -64,7 +65,8 @@ class _HouseScreenState extends State<HouseScreen> {
                 padding: EdgeInsets.all(8.0),
                 child: Text(
                   "Popular Cities",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
                 ),
               ),
             ),
@@ -131,7 +133,8 @@ class _HouseScreenState extends State<HouseScreen> {
                 padding: EdgeInsets.all(8.0),
                 child: Text(
                   "Related Search",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
                 ),
               ),
             ),
@@ -160,7 +163,8 @@ class _HouseScreenState extends State<HouseScreen> {
                 padding: EdgeInsets.all(8.0),
                 child: Text(
                   "Budget",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
                 ),
               ),
             ),
@@ -226,7 +230,8 @@ class _HouseScreenState extends State<HouseScreen> {
                 padding: EdgeInsets.all(8.0),
                 child: Text(
                   "Specific Concern",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
                 ),
               ),
             ),
@@ -237,6 +242,7 @@ class _HouseScreenState extends State<HouseScreen> {
                 // controller: controller.messageController,
                 decoration: const InputDecoration(
                     labelText: 'Ex: I am an Introver, please Take care',
+                    labelStyle: TextStyle(color: Colors.white),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                           width: 2, color: Colors.blue), //<-- SEE HERE

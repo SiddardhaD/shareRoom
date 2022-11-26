@@ -18,6 +18,15 @@ class _PostScreenState extends State<PostScreen> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          shadowColor: Colors.black,
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/bg/appbar.png"),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           bottom: const TabBar(
             tabs: [
               Tab(icon: Text("Room")),
