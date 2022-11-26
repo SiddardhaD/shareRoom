@@ -18,6 +18,7 @@ class _PGScreenState extends State<PGScreen> {
     double _value = 20;
     return SingleChildScrollView(
       child: Container(
+        color: Color.fromARGB(255, 10, 2, 70),
         padding: const EdgeInsets.all(8),
         alignment: Alignment.topLeft,
         child: Column(
@@ -64,7 +65,8 @@ class _PGScreenState extends State<PGScreen> {
                 padding: EdgeInsets.all(8.0),
                 child: Text(
                   "Popular Cities",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
                 ),
               ),
             ),
@@ -129,10 +131,9 @@ class _PGScreenState extends State<PGScreen> {
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.all(8.0),
-                child: Text(
-                  "Related Search",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+                child: Text("Related Search",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white)),
               ),
             ),
             GridView.builder(
@@ -160,7 +161,8 @@ class _PGScreenState extends State<PGScreen> {
                 padding: EdgeInsets.all(8.0),
                 child: Text(
                   "Budget",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
                 ),
               ),
             ),
@@ -186,7 +188,10 @@ class _PGScreenState extends State<PGScreen> {
                     children: [
                       Text(
                         "₹",
-                        style: TextStyle(color: Colors.blue, fontSize: 25),
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 25,
+                        ),
                       ),
                       Text(
                         "10",
@@ -226,7 +231,8 @@ class _PGScreenState extends State<PGScreen> {
                 padding: EdgeInsets.all(8.0),
                 child: Text(
                   "Specific Concern",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
                 ),
               ),
             ),
@@ -237,6 +243,7 @@ class _PGScreenState extends State<PGScreen> {
                 // controller: controller.messageController,
                 decoration: const InputDecoration(
                     labelText: 'Ex: I am an Introver, please Take care',
+                    labelStyle: TextStyle(color: Colors.white),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                           width: 2, color: Colors.blue), //<-- SEE HERE

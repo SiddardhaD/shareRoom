@@ -15,12 +15,14 @@ class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      elevation: 2,
+      backgroundColor: Color.fromARGB(255, 10, 2, 70),
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
             decoration: const BoxDecoration(
-              color: Colors.blue,
+              color: Color.fromARGB(255, 10, 2, 70),
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(55),
@@ -44,11 +46,15 @@ class DrawerWidget extends StatelessWidget {
             title: Row(children: [
               const Icon(
                 Icons.home,
+                color: Colors.white,
               ),
               const SizedBox(
                 width: 20,
               ),
-              const Text('Home')
+              const Text(
+                'Home',
+                style: TextStyle(color: Colors.white),
+              )
             ]),
             onTap: () {
               Navigator.pushReplacement(context,
@@ -60,11 +66,15 @@ class DrawerWidget extends StatelessWidget {
             title: Row(children: [
               const Icon(
                 Icons.message,
+                color: Colors.white,
               ),
               const SizedBox(
                 width: 20,
               ),
-              const Text('Inbox')
+              const Text(
+                'Inbox',
+                style: TextStyle(color: Colors.white),
+              )
             ]),
             onTap: () {
               Navigator.pushReplacement(
@@ -78,11 +88,15 @@ class DrawerWidget extends StatelessWidget {
             title: Row(children: [
               const Icon(
                 Icons.favorite,
+                color: Colors.white,
               ),
               const SizedBox(
                 width: 20,
               ),
-              const Text('Favorites')
+              const Text(
+                'Favorites',
+                style: TextStyle(color: Colors.white),
+              )
             ]),
             onTap: () {
               Navigator.pushReplacement(
@@ -96,11 +110,15 @@ class DrawerWidget extends StatelessWidget {
             title: Row(children: [
               const Icon(
                 Icons.notification_important,
+                color: Colors.white,
               ),
               const SizedBox(
                 width: 20,
               ),
-              const Text('Notifications')
+              const Text(
+                'Notifications',
+                style: TextStyle(color: Colors.white),
+              )
             ]),
             onTap: () {
               Navigator.pushReplacement(
@@ -114,11 +132,15 @@ class DrawerWidget extends StatelessWidget {
             title: Row(children: [
               const Icon(
                 Icons.person_add,
+                color: Colors.white,
               ),
               const SizedBox(
                 width: 20,
               ),
-              const Text('Add Friends')
+              const Text(
+                'Add Friends',
+                style: TextStyle(color: Colors.white),
+              )
             ]),
             onTap: () {
               Navigator.pushReplacement(
@@ -132,11 +154,15 @@ class DrawerWidget extends StatelessWidget {
             title: Row(children: [
               const Icon(
                 Icons.settings,
+                color: Colors.white,
               ),
               const SizedBox(
                 width: 20,
               ),
-              const Text('Settings')
+              const Text(
+                'Settings',
+                style: TextStyle(color: Colors.white),
+              )
             ]),
             onTap: () {
               Navigator.pushReplacement(
@@ -151,11 +177,15 @@ class DrawerWidget extends StatelessWidget {
             title: Row(children: [
               const Icon(
                 Icons.person,
+                color: Colors.white,
               ),
               const SizedBox(
                 width: 20,
               ),
-              const Text('Login')
+              const Text(
+                'Login',
+                style: TextStyle(color: Colors.white),
+              )
             ]),
             onTap: () {
               Navigator.pushReplacement(context,

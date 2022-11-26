@@ -814,6 +814,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.2.0"
+  glitters:
+    dependency: "direct main"
+    description:
+      name: glitters
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.0"
   glob:
     dependency: transitive
     description:
@@ -1449,6 +1456,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  syncfusion_flutter_core:
+    dependency: transitive
+    description:
+      name: syncfusion_flutter_core
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "20.3.58"
+  syncfusion_flutter_datepicker:
+    dependency: "direct main"
+    description:
+      name: syncfusion_flutter_datepicker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "20.3.58"
   synchronized:
     dependency: transitive
     description:
