@@ -96,7 +96,7 @@ class DrawerWidget extends StatelessWidget {
                 width: 20,
               ),
               const Text(
-                'Request Posted',
+                "Request's Posted",
                 style: TextStyle(color: Colors.white),
               )
             ]),
@@ -116,7 +116,7 @@ class DrawerWidget extends StatelessWidget {
                 width: 20,
               ),
               const Text(
-                'Add Posted',
+                'Adds Posted',
                 style: TextStyle(color: Colors.white),
               )
             ]),
