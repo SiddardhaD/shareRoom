@@ -2,9 +2,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shareme/screens/mainScreen.dart';
 import 'package:shareme/screens/notifications/notifications_screen.dart';
+import 'package:shareme/screens/post/postUrAdd_screen.dart';
 import 'package:shareme/screens/post/post_screen.dart';
 import 'package:shareme/widgets/drawer.dart';
-import 'package:shareme/widgets/keywords.dart';
+import 'package:geolocator/geolocator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -100,19 +101,36 @@ class _HomeScreenState extends State<HomeScreen> {
             preferredSize: const Size.fromHeight(4.0),
             child: Column(
               children: [
-                Row(children: [
-                  IconButton(
-                    color: Colors.white,
-                    icon: const Icon(Icons.location_on),
-                    onPressed: () {
-                      debugPrint("Please chose Location");
-                    },
-                  ),
-                  const Text(
-                    "Change Location",
-                    style: TextStyle(color: Colors.white),
-                  )
-                ]),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          IconButton(
+                            color: Colors.white,
+                            icon: const Icon(Icons.location_on),
+                            onPressed: () {
+                              debugPrint("Please chose Location");
+                            },
+                          ),
+                          const Text(
+                            "Change Location",
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PostYourAddScreen()));
+                          },
+                          child: const Text(
+                            "Post Add",
+                            style: TextStyle(color: Colors.white),
+                          ))
+                    ]),
                 Padding(
                   padding: const EdgeInsets.all(8),
                   child: SizedBox(
@@ -134,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: Colors.white,
                           ),
                           child: const Center(
-                              child: Text("Post Something",
+                              child: Text("Post a Request (P.A.R)",
                                   style: TextStyle(
                                       color: Color.fromARGB(255, 0, 0, 0),
                                       fontSize: 12,
