@@ -1,16 +1,8 @@
 # shareme
 
-A new Flutter project.
+A new Flutter project. : Share WE
 
-## Getting Started
+App helps to Quick explore the rented houses, PG's and Flats near by location and able to contact the owner
 
-This project is a starting point for a Flutter application.
+User can able to post the advertise the House where they found, which helps to people who explore the app for rents
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
